@@ -7,13 +7,9 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 )
-
-var _ = fmt.Println
-var _ = http.ListenAndServe
 
 func main() {
 	config := setup()
