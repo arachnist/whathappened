@@ -13,9 +13,9 @@ import (
 
 func main() {
 	config := setup()
+	fs := http.FileServer(http.Dir("static"))
 
-	log.Println("setup:", config)
-
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.HandleFunc("/submit", submit)
 	http.HandleFunc("/submit_form", submit_form)
 	log.Fatalln(http.ListenAndServe(config.Listen, nil))
