@@ -29,7 +29,11 @@ func submit(w http.ResponseWriter, r *http.Request) {
 	layout := path.Join("templates", "layout.html")
 	form := path.Join("templates", "submit.html")
 
-	tmpl, _ := template.ParseFiles(layout, form)
+	tmpl, err := template.ParseFiles(layout, form)
+	if err != nil {
+		log.Println("error paring templates", err)
+		http.Error(w, http.StatusText(500), 500)
+	}
 	tmpl.ExecuteTemplate(w, "layout", nil)
 }
 
