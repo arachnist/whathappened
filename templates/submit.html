@@ -1,0 +1,13 @@
+{{define "title"}}Submit entry{{end}}
+
+{{define "body"}}
+<form method="POST" action="/submit_form">
+    Text: <input type="text" name="text"/>
+    Who: <input type="text" name="who"/>
+    Location: <input type="text" name="location"/>
+    When: <input type="text" name="when"/>
+    From: <input type="text" name="from"/>
+    To: <input type="text" name="to"/>
+    <input type="submit"/>
+</form>
+{{end}}
